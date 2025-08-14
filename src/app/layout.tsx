@@ -10,8 +10,7 @@ export const metadata: Metadata = {
   description: 'Explore and manage resources efficiently',
   applicationName: 'Resource Explorer',
   keywords: ['Resource Explorer', 'Next.js', 'React Query', 'Tailwind'],
-  viewport: 'width=device-width, initial-scale=1',
-  manifest: '/site.webmanifest',  
+  manifest: '/site.webmanifest',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
