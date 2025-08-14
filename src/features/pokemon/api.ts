@@ -7,7 +7,7 @@ export async function getPokemonList(
   search?: string
 ): Promise<PokemonListResponse> {
   const res = await api.get(`/pokemon?offset=${offset}&limit=${limit}`);
-  let data = res.data;
+  const data = res.data; 
 
   if (search) {
     data.results = data.results.filter((p: { name: string }) =>

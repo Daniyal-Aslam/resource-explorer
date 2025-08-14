@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { getPokemonList } from '@/features/pokemon/api';
 import Link from 'next/link';
-import { X } from 'lucide-react'; 
+import { X } from 'lucide-react';
 
 export default function SearchBar() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function SearchBar() {
   const [value, setValue] = useState(searchParams.get('q') || '');
   const [suggestions, setSuggestions] = useState<{ name: string }[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
- 
+
   useEffect(() => {
     let active = true;
     const fetchSuggestions = async () => {
@@ -32,7 +32,7 @@ export default function SearchBar() {
       active = false;
     };
   }, [value]);
- 
+
   useEffect(() => {
     const handler = setTimeout(() => {
       const params = new URLSearchParams(searchParams.toString());
@@ -58,7 +58,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="relative max-w-sm"> 
+    <div className="relative max-w-sm">
       <div className="relative">
         <Input
           placeholder="Search Pokémon..."
@@ -69,26 +69,30 @@ export default function SearchBar() {
           }}
           onFocus={() => setShowSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
-          className="pr-8"
+          className="pr-8 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600"
         />
         {value && (
           <button
             type="button"
             onClick={clearSearch}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
           >
             <X size={16} />
           </button>
         )}
       </div>
- 
+
       {showSuggestions && suggestions.length > 0 && (
-        <ul className="absolute z-10 bg-white border border-gray-200 rounded-md mt-1 w-full shadow-lg">
+        <ul className="absolute z-10 bg-white border border-gray-200 rounded-md mt-1 w-full shadow-lg 
+                       dark:bg-gray-800 dark:border-gray-700">
           {suggestions.map((p) => (
-            <li key={p.name} className="hover:bg-gray-100">
+            <li
+              key={p.name}
+              className="hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
               <Link
                 href={`/pokemon/${p.name}`}
-                className="block px-3 py-2 capitalize"
+                className="block px-3 py-2 capitalize dark:text-gray-100"
               >
                 {p.name}
               </Link>

@@ -15,18 +15,26 @@ export const useFavoritesStore = create<FavoritesState>()(
     (set, get) => ({
       favorites: [],
 
-      addFavorite: (item) => set((state) => ({ favorites: [...state.favorites, item] })),
+      addFavorite: (item) =>
+        set((state) => ({ favorites: [...state.favorites, item] })),
 
       removeFavorite: (item) =>
-        set((state) => ({ favorites: state.favorites.filter((fav) => fav !== item) })),
+        set((state) => ({
+          favorites: state.favorites.filter((fav) => fav !== item),
+        })),
 
       toggleFavorite: (item) => {
         const { favorites, addFavorite, removeFavorite } = get();
-        favorites.includes(item) ? removeFavorite(item) : addFavorite(item);
+
+        if (favorites.includes(item)) {
+          removeFavorite(item);
+        } else {
+          addFavorite(item);
+        }
       },
     }),
     {
-      name: 'favorites-storage', 
+      name: 'favorites-storage',
     }
   )
 );

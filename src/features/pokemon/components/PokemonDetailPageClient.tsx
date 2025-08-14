@@ -7,6 +7,7 @@ import { getPokemonDetail } from '@/features/pokemon/api';
 import Loader from '@/components/common/Loader';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import { PokemonDetail } from '@/features/pokemon/types';
 
 interface Props {
   name: string;
@@ -14,20 +15,38 @@ interface Props {
 
 export default function PokemonDetailPageClient({ name }: Props) {
   const router = useRouter();
-  const [pokemon, setPokemon] = useState<any>(null);
+  const [pokemon, setPokemon] = useState<PokemonDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function fetchData() {
-      setLoading(true);
-      const data = await getPokemonDetail(name);
-      setPokemon(data);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const data = await getPokemonDetail(name);
+        if (isMounted) {
+          setPokemon(data);
+        }
+      } catch (err) {
+        console.error(err);
+        if (isMounted) setError('Failed to fetch Pokémon details.');
+      } finally {
+        if (isMounted) setLoading(false);
+      }
     }
+
     fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [name]);
 
   if (loading) return <Loader />;
+  if (error) return <p className="text-red-500">{error}</p>;
+  if (!pokemon) return <p>No data found.</p>;
 
   return (
     <div className="max-w-7xl mx-auto p-4">
