@@ -76,11 +76,10 @@ npm run lint
 ### **Folder Structure (high-level)**
 
 ```
-/app                # Next.js App Router pages
+/app                # Next.js App Router pages & Global Tailwind/SCSS styles
 /components         # Reusable UI components
 /features           # Domain-specific features with hooks and queries
 /lib                # Utility functions and helpers
-/public             # Static assets
-/styles             # Global Tailwind/SCSS styles
+/public             # Static assets 
 ```
  
