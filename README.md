@@ -6,11 +6,8 @@
 
 ## **Table of Contents**
 
-1. [Project Setup](#project-setup)
-2. [Available Scripts](#available-scripts)
-3. [Architecture Overview](#architecture-overview)
-4. [Trade-offs](#trade-offs)
-5. [Future Improvements](#future-improvements)
+1. [Project Setup](#project-setup) 
+2. [Architecture Overview](#architecture-overview) 
 
 ---
 
