@@ -1,7 +1,7 @@
 'use client';
 
-import PokemonCard from '@/components/pokemon/PokemonCard';
-import useFavorites from './useFavorites';
+import PokemonCard from '@/features/pokemon/components/PokemonCard';
+import useFavorites from '../hooks/useFavorites';
 
 export function FavoritesList() {
   const { favorites } = useFavorites();

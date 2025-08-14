@@ -1,13 +1,12 @@
 'use client';
 
-import { PokemonDetail } from '../../app/features/pokemon/types';
+import { PokemonDetail } from '../types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function PokemonDetailCard({ pokemon }: { pokemon: PokemonDetail }) {
   const image =
     pokemon.sprites.other?.['official-artwork']?.front_default ||
-    pokemon.sprites.front_default;
-
+    pokemon.sprites.front_default; 
   return (
     <Card>
       <CardHeader>
@@ -15,8 +14,7 @@ export default function PokemonDetailCard({ pokemon }: { pokemon: PokemonDetail 
       </CardHeader>
       <CardContent>
         <img src={image} alt={pokemon.name} className="w-48 h-48 mx-auto" />
-        <div className="mt-4 space-y-2">
-          <p><strong>ID:</strong> {pokemon.id}</p>
+        <div className="mt-4 space-y-2"> 
           <p><strong>Height:</strong> {pokemon.height}</p>
           <p><strong>Weight:</strong> {pokemon.weight}</p>
           <p><strong>Types:</strong> {pokemon.types.map(t => t.type.name).join(', ')}</p>

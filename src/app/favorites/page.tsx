@@ -1,5 +1,4 @@
-import {FavoritesList} from '@/app/features/favorites/FavoritesList';
-
+import {FavoritesList} from '@/features/favorites/components/FavoritesList';
 export default function FavoritesPage() {
   return (
     <div>

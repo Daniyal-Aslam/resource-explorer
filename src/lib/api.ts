@@ -1,6 +1,7 @@
-export async function fetcher<T>(url: string): Promise<T> {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`Failed to fetch: ${url}`);
-    return res.json();
-  }
-  
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_POKEMON_API,
+});
+
+export default api;

@@ -1,12 +1,6 @@
-import PokemonDetailCard from '@/components/pokemon/PokemonDetailCard';
-import { getPokemonDetail } from '@/app/features/pokemon/api';
  
-export default async function PokemonDetailPage({ params }: { params: { name: string } }) {
-  const pokemon = await getPokemonDetail(params.name);
+import PokemonDetailPageClient from '@/features/pokemon/components/PokemonDetailPageClient';
 
-  return (
-    <div>
-      <PokemonDetailCard pokemon={pokemon} />
-    </div>
-  );
+export default function PokemonDetailPage({ params }: { params: { name: string } }) {
+  return <PokemonDetailPageClient name={params.name} />;
 }
