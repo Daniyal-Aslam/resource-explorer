@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Resource Explorer
 
-## Getting Started
+Resource Explorer is a Next.js 15 application built to efficiently browse and manage resources. It leverages modern React features, state management, and utility libraries for a highly performant and scalable solution.
 
-First, run the development server:
+Table of Contents
 
-```bash
+Project Setup
+
+Available Scripts
+
+Architecture Overview
+
+Trade-offs
+
+Future Improvements
+
+Project Setup
+Prerequisites
+
+Make sure you have the following installed:
+
+Node.js ≥ 20
+
+npm or yarn
+
+Git
+
+Clone Repository
+git clone https://github.com/Daniyal-Aslam/resource-explorer.git
+cd resource-explorer
+
+Install Dependencies
+npm install 
+
+Run in Development Mode
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit http://localhost:3000 in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build for Production
+npm run build
+npm start
 
-## Learn More
+Linting
+npm run lint
 
-To learn more about Next.js, take a look at the following resources:
+Architecture Overview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Resource Explorer follows a modern Next.js 15 architecture with Turbopack for faster development and builds.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Key Highlights:
 
-## Deploy on Vercel
+Framework: Next.js 15 with App Router (assumed from folder structure)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+State Management: zustand for global state and lightweight management
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Server State: @tanstack/react-query for caching API data and queries
+
+Styling: TailwindCSS v4 with utility-first styling; tailwind-merge for merging class names dynamically
+
+UI Components:
+
+@radix-ui for accessible UI primitives (Select, Switch, Slot, Label)
+
+lucide-react for icons
+
+Utilities: 
+
+query-string for handling query params
+
+Type Safety: TypeScript for type safety and maintainability
+  
+Folder Structure (high-level)
+/app                # Next.js App Router pages
+/components         # Reusable UI components
+/features           # Domain-specific features with hooks and queries
+/lib                # Utility functions and helpers
+/public             # Static assets
+/styles             # Global Tailwind/SCSS styles
