@@ -6,11 +6,8 @@
 
 ## **Table of Contents**
 
-1. [Project Setup](#project-setup)
-2. [Available Scripts](#available-scripts)
-3. [Architecture Overview](#architecture-overview)
-4. [Trade-offs](#trade-offs)
-5. [Future Improvements](#future-improvements)
+1. [Project Setup](#project-setup) 
+2. [Architecture Overview](#architecture-overview) 
 
 ---
 
@@ -79,11 +76,10 @@ npm run lint
 ### **Folder Structure (high-level)**
 
 ```
-/app                # Next.js App Router pages
+/app                # Next.js App Router pages & Global Tailwind/SCSS styles
 /components         # Reusable UI components
 /features           # Domain-specific features with hooks and queries
 /lib                # Utility functions and helpers
-/public             # Static assets
-/styles             # Global Tailwind/SCSS styles
+/public             # Static assets 
 ```
  
